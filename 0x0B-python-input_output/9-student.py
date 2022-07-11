@@ -14,3 +14,4 @@ class Student:
     def to_json(self):
         """retrieve a dictionary represnetation of a student instance"""
         return vars(self)
+    
