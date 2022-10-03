@@ -20,4 +20,4 @@ Simultaneously, I continued to reinforce and expand my skills in C and shell scr
 * [0x0E. SQL - More Queries](./0x0E-SQL_more_queries)
 * [0x0E. jacascript-warmup](0x12-javascript-warm_up
 )
-* [0x0E. Javascript - object](0x13-javascript_objects_scopes)
+* [0x0E. Javascript - object](0x13-javascript_objects_scopes) .
