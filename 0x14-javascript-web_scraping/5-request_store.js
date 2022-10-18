@@ -1,12 +1,9 @@
 #!/usr/bin/node
-const axios = require('axios');
 const fs = require('fs');
-axios.get(process.argv[2])
-  .then(response => {
-    const content = response.data;
-    fs.writeFile(process.argv[3], content, err => {
-      if (err) {
-        console.error(err);
-      }
-    });
-  });
+const request = require('request');
+
+if (process.argv.length > 3) {
+  request
+    .get(`${process.argv[2]}`)
+    .pipe(fs.createWriteStream(process.argv[3]));
+}
