@@ -1,13 +1,16 @@
 #!/usr/bin/node
-const axios = require('axios');
-axios.get(process.argv[2])
-  .then(response => {
-    const movies = response.data.results;
-    const count = movies.filter(movie => movie.characters.find(character =>
-      character.includes('18')
-    )).length;
-    console.log(count);
-  })
-  .catch(error => {
-    console.log(error);
+const request = require('request');
+
+if (process.argv.length > 2) {
+  request(`${process.argv[2]}`, (err, res, body) => {
+    if (err) {
+      console.log(err);
+    } else if (body) {
+      const charFilms = JSON.parse(body).results.filter(
+        x => x.characters.find(y => y.match(/\/people\/18\/?$/))
+      );
+
+      console.log(charFilms.length);
+    }
   });
+}
