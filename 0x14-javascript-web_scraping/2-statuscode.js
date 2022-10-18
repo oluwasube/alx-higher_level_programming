@@ -1,8 +1,10 @@
 #!/usr/bin/node
-const axios = require('axios');
-axios.get(process.argv[2])
-  .then(response => {
-    console.log('code: ' + response.status);
-  }).catch(error => {
-    console.log('code: ' + error.response.status);
-  });
+const request = require('request');
+
+if (process.argv.length > 2) {
+  request
+    .get(process.argv[2])
+    .on('response', response => {
+      console.log(`code: ${response.statusCode}`);
+    });
+}
